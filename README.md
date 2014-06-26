@@ -36,12 +36,28 @@ But before you run this command you need to create placeholder.json.
 **Example**:
 ```json
 
-   // this is a transformation-file
-   exports.transform = function( element ){
-               ...
-   };
+{
+    "version"        : 1,
+    "images" : [
+        {
+            "path"   : "./img",
+            "output" : "./dist",
+
+            "src"    : "test",
+            "type"   : "png",
+
+            "width"  : 100,
+            "height" : 100,
+
+            "copy" : [
+                "btn_example_state_on"
+            ]
+        }
+    ]
+}
 ```
 
+**Important:** "path" and "output" should be relative to directory where placeholderjs is executed.
 
 ## License: MIT
 *(check LICENSE file.)*

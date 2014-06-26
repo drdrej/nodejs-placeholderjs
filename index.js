@@ -65,7 +65,7 @@ tools.query( config )
                 path: image.path,
                 width: image.src.width,
                 height: image.src.height,
-                output: (image.src.output + "/" + name + "_" + this.width + "x" + this.height + "." + image.src.type)
+                output: (image.src.output + "/" + name + "_" + image.src.width + "x" + image.src.height + "." + image.src.type)
             };
 
             result.push(copy);
@@ -73,6 +73,25 @@ tools.query( config )
 
         console.log( "-- ready!!!" );
         return result;
+    })
+    .split()
+    .transform( function( image ) {
+        console.log( "-- create thumbnail: " + image.path );
+        var fs = require('fs');
+        var gm = require('gm');
+
+        gm( image.path )
+            .resize( image.width, image.height)
+            .noProfile()
+            .write( image.output, function (err) {
+                if (!err)
+                    console.log('-- IMAGE resize done! path: ' + image.output );
+                else
+                    console.log( err );
+            });
+
+        // return original image after transformation.
+        return image;
     });
 
     // TODO: split  array in elements ...

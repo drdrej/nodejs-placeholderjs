@@ -8,17 +8,21 @@ var nopt = require("nopt");
 exports.cli = function() {
         var path = require("path");
 
-        var knownOpts = {
-                "config" : path
-        };
+        // var knownOpts = {};
+        // var shortHands = {};
 
-        var shortHands = {
-            "c" : ["--config", "Path to placeholder config file."]
-        };
+            var knownOpts = {
+                "config" : path,
+                "version" : Boolean
+            };
+
+            var shortHands = {
+                "c" : ["--config"],
+                "v" : ["--version"]
+            };
 
     var parsed = nopt(knownOpts, shortHands, process.argv, 2);
 
-    console.log(parsed);
-
+    console.log( "-- cli options parsed." );
     return parsed;
 };

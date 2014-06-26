@@ -2,7 +2,16 @@
 
 var script = require( '../impl/execFromCli.js' );
 
-script.cli();
+var cli = script.cli();
+var impl = require( "../impl/main.js" );
+
+if( cli.version ) {
+    var packageJSON = require( "../package.json" );
+    console.log( "-- version: " + packageJSON.name + "@" + packageJSON.version );
+}
+
+impl.exec( cli.config );
+
 
 // TODO: options-check: dist/ exists? /input exists?
 // TODO: cli options parse and exec

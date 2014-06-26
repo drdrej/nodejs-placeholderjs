@@ -10,7 +10,10 @@ if( cli.version ) {
     console.log( "-- version: " + packageJSON.name + "@" + packageJSON.version );
 }
 
-impl.exec( cli.config );
+console.log( "-- load config:" + cli.config );
+var config = require( cli.config );
+
+impl.exec( config );
 
 
 // TODO: options-check: dist/ exists? /input exists?

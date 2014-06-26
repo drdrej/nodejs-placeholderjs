@@ -1,7 +1,0 @@
-
-    "output" : ... d.h. wohin kommt das generierte Bild hin.
-
-
-    "directories" : {
-        "test" : "./img/test.png"
-    },

@@ -5,11 +5,12 @@ console.log( "-- needs imagemagick" );
 var tools = require( 'json-tools' );
 
 // read config:
-var config = require( "./placeholder.json" );
+var config = require( "./example/placeholder.json" );
 
 // include underscore: nice lib
 var _ = require( "underscore" );
 
+/*
 var resizeFnc = function( image, path, output ) {
     console.log( "-- create thumbnail: " + image.path );
     var fs = require('fs');
@@ -32,6 +33,9 @@ var resizeFnc = function( image, path, output ) {
 var resize = function(image) {
     return resizeFnc(image, image.path, image.output)
 };
+*/
+
+var resize = require( './impl/transform/resizeImage.js').transform;
 
 var prepareBasicThumbnail = function( image ){
     console.log( "-- TRAMSFORMATION: create img.resize.node");

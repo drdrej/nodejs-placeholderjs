@@ -26,7 +26,7 @@ var _ = require( "underscore" );
 
 gulp.task("resize-image", function () {
 
-    var config = require( "./placeholder.json" );
+    var config = require( "./example/placeholder.json" );
     var tasks = _.map(config.images, function(image) {
         return gulp.src( "img/" + image.name + "." + image.type + "" )
         .pipe(imageResize(

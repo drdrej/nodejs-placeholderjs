@@ -6,10 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
+  "bin" : {
+    "placeholderjs": "./bin/placeholderjs"
+  },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/drdrej/nodejs-placeholderjs.git"
   },
+
   "keywords": [
     "image",
     "prototyping",

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-var index = require( '../index.js' );
+var script = require( '../impl/execFromCli.js' );
+
+script.cli();
 
 // TODO: options-check: dist/ exists? /input exists?
 // TODO: cli options parse and exec

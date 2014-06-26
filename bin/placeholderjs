@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var index = require( '../index.js' );
+
+// TODO: options-check: dist/ exists? /input exists?
+// TODO: cli options parse and exec
+
+// TODO: export as gulp-plugin: placeholderjs( "./placeholder.json" )

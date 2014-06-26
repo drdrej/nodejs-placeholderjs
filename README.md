@@ -11,11 +11,11 @@ Creates placeholder-thumbnails. Uses a config file to define thumbnails.
 ## Dependencies
 
 PlaceholdersJS is based on other open-source projects:
-# graphicsmagick
-# JSONSelect
-# UnderscoreJS
-# npm
-# nopt
+* graphicsmagick
+* JSONSelect
+* UnderscoreJS
+* npm
+* nopt
 ... and others
 
 I like to say thank you to guys who develop this useful stuff!

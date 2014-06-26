@@ -27,7 +27,7 @@ First of all you need to install placeholderjs in npm.
    > npm install -g placeholderjs
 ```
 
-
+Run placeholdersjs:
 ```
    > placeholderjs -c "./placeholder.json"
 ```

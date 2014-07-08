@@ -4,7 +4,7 @@ nodejs-placeholderjs
 Creates placeholder-thumbnails. Uses a config file to define thumbnails.
 
     author:  Andreas Siebert (aka drdrej) / touchableheroes.com
-    version: 0.0.1
+    version: 0.0.2
     state:   experimental
 
 

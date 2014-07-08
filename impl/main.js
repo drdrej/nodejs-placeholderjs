@@ -11,9 +11,9 @@ exports.exec = function( config ) {
         return;
     }
 
-    var json = require( 'json-tools' );
+    var tools = require( 'json-tools' );
 
-    json.query( config )
+    tools.json( config )
         .select( '.images > *' )
         .transform( __dirname + '/transform/prepareBasicThumbnail.js' )
         .transform( __dirname + '/transform/resizeImage.js' )

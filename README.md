@@ -4,7 +4,7 @@ nodejs-placeholderjs
 Creates placeholder-thumbnails. Uses a config file to define thumbnails.
 
     author:  Andreas Siebert (aka drdrej) / touchableheroes.com
-    version: 0.0.2
+    version: 0.0.3
     state:   experimental
 
 
@@ -20,11 +20,56 @@ PlaceholdersJS is based on other open-source projects:
 
 I like to say thank you to guys who develop this useful stuff!
 
+## Use-Case
+...
+
+
 ## Getting started
 
 First of all you need to install placeholderjs in npm.
 ```
    > npm install -g placeholderjs
+```
+
+Before you start you need a config file placeholder.json
+Like this one:
+```json
+{
+    "version"        : 1,
+    "images" : [
+        {
+            "path"   : "./img",
+            "output" : "./dist",
+
+            "src"    : "test",
+            "type"   : "png",
+
+            "width"  : 100,
+            "height" : 100,
+
+            "copy" : [
+                "btn_example_state_on"
+            ]
+        },
+
+        {
+            "path"   : "./img",
+            "output" : "./dist",
+
+            "src"    : "test_new",
+            "type"   : "png",
+
+            "width"  : 100,
+            "height" : 100,
+
+            "bgColor"   : "rgb(0, 10, 25)",
+
+            "copy" : [
+                "btn_example_state_on_2"
+            ]
+        }
+    ]
+}
 ```
 
 Run placeholdersjs:

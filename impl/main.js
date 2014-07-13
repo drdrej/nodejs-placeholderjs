@@ -21,7 +21,7 @@ exports.exec = function( config ) {
 
     tools.json( config )
         .validate( __dirname + "/validate/checkVersion.js" )
-        
+
         .select( '.images > *' )
         .validate( __dirname + '/validate/checkHeightWidth.js')
 

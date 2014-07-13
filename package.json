@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "underscore": "~1.6.0",
-    "json-tools": "~0.2.27"
+    "json-tools": "~0.2.27",
+    "artefactjs-loader": "0.0.2"
   }
 }

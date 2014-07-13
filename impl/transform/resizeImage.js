@@ -1,7 +1,7 @@
 var _ = require( "underscore" );
 
 var resizeFnc = function( image, path, output ) {
-    console.log( "-- create thumbnail: " + image.path );
+    console.log( "-- resize thumbnail: " + image.path );
     var fs = require('fs');
     var gm = require('gm');
 

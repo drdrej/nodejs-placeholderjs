@@ -1,6 +1,4 @@
 
-// read config: Example
-// var config = require( "./example/placeholder.json" );
 exports.exec = function( config ) {
     console.log( "-- start: placeholders" );
 
@@ -16,10 +14,17 @@ exports.exec = function( config ) {
     tools.json( config )
         .select( '.images > *' )
         .transform( __dirname + '/transform/prepareBasicThumbnail.js' )
-        .transform( __dirname + '/transform/resizeImage.js' )
+        .transform( __dirname + '/transform/createNewImage.js' )
         .transform( __dirname + '/transform/prepareCopiesThumbnails.js' )
         .split()
         .transform( __dirname + '/transform/resizeImage.js' );
+};
+
+exports.run = function( path ) {
+    var loader = require( 'artefactjs-loader' );
+
+    var config = loader.load( path );
+    exports.exec( config );
 };
 
 

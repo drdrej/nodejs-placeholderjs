@@ -1,4 +1,12 @@
-
+/**
+ * structure of config : {
+ *     $modified : Date,
+ *     $path     : path to json,
+ *     $json     : loaded json
+ * }
+ *
+ * @param config
+ */
 exports.exec = function( config ) {
     console.log( "-- start: placeholders" );
 
@@ -12,12 +20,13 @@ exports.exec = function( config ) {
     var tools = require( 'json-tools' );
 
     tools.json( config )
+        .validate( __dirname + "/validate/checkVersion.js" )
+        
         .select( '.images > *' )
+        .validate( __dirname + '/validate/checkHeightWidth.js')
+
         .transform( __dirname + '/transform/prepareBasicThumbnail.js' )
-        .validate(  function( element, options ) {
-            return true;
-            // require(__dirname + '/validate/validateJSON.js').validate(element, options);
-        })
+        .validate(  __dirname + '/validate/checkHeightWidth.js' )
         .transform( __dirname + '/transform/createNewImage.js' )
         .transform( __dirname + '/transform/prepareCopiesThumbnails.js' )
         .split()

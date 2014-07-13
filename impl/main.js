@@ -14,6 +14,10 @@ exports.exec = function( config ) {
     tools.json( config )
         .select( '.images > *' )
         .transform( __dirname + '/transform/prepareBasicThumbnail.js' )
+        .validate(  function( element, options ) {
+            return true;
+            // require(__dirname + '/validate/validateJSON.js').validate(element, options);
+        })
         .transform( __dirname + '/transform/createNewImage.js' )
         .transform( __dirname + '/transform/prepareCopiesThumbnails.js' )
         .split()

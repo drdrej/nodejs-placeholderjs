@@ -1,4 +1,3 @@
-
 var _ = require( "underscore" );
 
 var create = function( image, path, output ) {
@@ -12,16 +11,12 @@ var create = function( image, path, output ) {
         return image;
     }
 
-    var bgColor = image.bgColor && _.isString(image.bgColor) ? image.bgColor : "#ddff99f3";
+    var bgColor = image.src.bgColor && _.isString(image.src.bgColor) ? image.src.bgColor : "red";
     var isRunning = true;
-
 
     var realPath = require( 'path').resolve(path);
 
-    exports.DEFAULT_WIDTH
-    //gm(exports.DEFAULT_WIDTH, exports.DEFAULT_HEIGHT, image.bgColor)
-    gm( 512, 512, "#ddff99f3")
-        .fill('##ddff00ff')
+    gm( image.width, image.height, bgColor )
         .write(realPath, function (err) {
             if (!err) {
                 console.log('-- IMAGE src created successful! path: ' + realPath);
@@ -37,6 +32,7 @@ var create = function( image, path, output ) {
      .drawText(10, 50, "from scratch")
     */
 
+    /*
     var wait = function() {
         console.log( "-- set timeout." );
 
@@ -49,6 +45,7 @@ var create = function( image, path, output ) {
     };
 
     wait();
+   */
 
     return image;
 };

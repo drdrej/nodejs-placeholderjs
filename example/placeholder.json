@@ -26,7 +26,7 @@
             "width"  : 100,
             "height" : 100,
 
-            "bgColor"   : "#ffccff",
+            "bgColor"   : "rgb(0, 10, 25)",
 
             "copy" : [
                 "btn_example_state_on_2"

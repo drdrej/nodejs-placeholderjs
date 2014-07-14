@@ -4,7 +4,7 @@ nodejs-placeholderjs
 Creates placeholder-thumbnails. Uses a config file to define thumbnails.
 
     author:  Andreas Siebert (aka drdrej) / touchableheroes.com
-    version: 0.0.3
+    version: 0.0.4
     state:   experimental
 
 
@@ -21,8 +21,8 @@ PlaceholdersJS is based on other open-source projects:
 I like to say thank you to guys who develop this useful stuff!
 
 ## Use-Case
-...
-
+* you need to create some fills with different colors to use them as placeholder in your layout-files.
+* you need to resize images/create thumbnails
 
 ## Getting started
 
@@ -31,38 +31,40 @@ First of all you need to install placeholderjs in npm.
    > npm install -g placeholderjs
 ```
 
-Before you start you need a config file placeholder.json
-Like this one:
+## Example placeholder-configuration
+Store placeholder-configuration in ./placeholderjs.json file.
+
 ```json
 {
-    "version"        : 1,
+    "version"        : 2,
+
+    "input"           : "./img",
+
     "images" : [
         {
-            "path"   : "./img",
-            "output" : "./dist",
-
             "src"    : "test",
             "type"   : "png",
 
-            "width"  : 100,
-            "height" : 100,
+            "output"  : [{
+                "path" : "./dist/dir1",
+                "width"  : 100,
+                "height" : 100
+             }],
 
             "copy" : [
                 "btn_example_state_on"
             ]
         },
-
         {
-            "path"   : "./img",
-            "output" : "./dist",
-
             "src"    : "test_new",
             "type"   : "png",
-
-            "width"  : 100,
-            "height" : 100,
-
             "bgColor"   : "rgb(0, 10, 25)",
+
+            "output"  : [{
+                "path" : "./dist/dir2",
+                "width"  : 200,
+                "height" : 200
+            }],
 
             "copy" : [
                 "btn_example_state_on_2"
@@ -72,37 +74,18 @@ Like this one:
 }
 ```
 
+**What placeholder will do:**
+# create image if not exists
+# resize image
+# create copies of this image
+
 Run placeholdersjs:
 ```
    > placeholderjs -c "./placeholder.json"
 ```
-But before you run this command you need to create placeholder.json.
 
-**Example**:
-```json
 
-{
-    "version"        : 1,
-    "images" : [
-        {
-            "path"   : "./img",
-            "output" : "./dist",
-
-            "src"    : "test",
-            "type"   : "png",
-
-            "width"  : 100,
-            "height" : 100,
-
-            "copy" : [
-                "btn_example_state_on"
-            ]
-        }
-    ]
-}
-```
-
-**Important:** "path" and "output" should be relative to directory where placeholderjs is executed.
+**Important:** input and output.path should be relative to directory where placeholderjs is executed.
 
 ## License: MIT
 *(check LICENSE file.)*

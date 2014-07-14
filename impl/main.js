@@ -24,6 +24,7 @@ exports.exec = function( config ) {
         .transform( __dirname + '/transform/prepareImageWrapper.js' )
         .transform( __dirname + '/transform/prepareImageInput.js' )
         .split()
+        .transform( __dirname + '/transform/createOutputDirs.js' )
         .transform( __dirname + '/transform/createNewImage.js' )
         .transform( __dirname + '/transform/resizeImage.js' );
 

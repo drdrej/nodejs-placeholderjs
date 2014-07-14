@@ -1,26 +1,23 @@
 var _ = require( "underscore" );
+require( 'colors' );
 
-var resizeFnc = function( image, path, output ) {
-    console.log( "-- resize thumbnail: " + image.path );
+exports.transform = function( image, options) {
+    console.log( "-- resize image: " + image.input );
+
     var fs = require('fs');
     var gm = require('gm');
 
-    gm( path )
+    gm( image.input )
         .resize( image.width, image.height)
         .noProfile()
-        .write( output, function (err) {
-            if (!err)
-                console.log('-- IMAGE resize done! path: ' + image.output );
-            else
-                console.log( err );
+        .write( image.output, function (err) {
+            if (!err) {
+                console.log(('-- IMAGE resize done! path: ' + image.output).green);
+            } else {
+                console.log( ("Couldn't resize image: " + image.input).red );
+                console.log(err);
+            }
         });
 
-    // return original image after transformation.
     return image;
 };
-
-var resize = function(image) {
-    return resizeFnc(image, image.path, image.output)
-};
-
-exports.transform = resize;

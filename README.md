@@ -75,9 +75,9 @@ Store placeholder-configuration in ./placeholderjs.json file.
 ```
 
 **What placeholder will do:**
-# create image if not exists
-# resize image
-# create copies of this image
+* create image if not exists
+* resize image
+* create copies of this image
 
 Run placeholdersjs:
 ```

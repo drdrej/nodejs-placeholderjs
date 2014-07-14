@@ -21,7 +21,8 @@ exports.transform = function( json, options ) {
     root.each( '.$json > .images > *', function( imgConfig ) {
         var copy = imgConfig.json.copy;
         var bgColor = imgConfig.text( '#bgColor' );
-        var name = './' + imgConfig.text( '#src' ) + '.' + imgConfig.text( '#type' );
+        var type = imgConfig.text( '#type' );
+        var name = './' + imgConfig.text( '#src' ) + '.' + type;
 
         imgConfig.each( '.output > *', function( outputConfig, idx ){
             var outputResolved = Path.resolve(
@@ -29,6 +30,7 @@ exports.transform = function( json, options ) {
             var imgSrcFile = Path.resolve( inputResolved, name );
 
             var image = {
+                type   : type,
                 width  : outputConfig.json.width,
                 height : outputConfig.json.height,
                 input  : imgSrcFile,

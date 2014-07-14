@@ -26,30 +26,12 @@ exports.exec = function( config ) {
         .split()
         .transform( __dirname + '/transform/createOutputDirs.js' )
         .transform( __dirname + '/transform/createNewImage.js' )
-        .transform( __dirname + '/transform/resizeImage.js' );
-
-        /*
-        .transform( function( element, options ) {
-            console.log();
-            return element.$images;
-        })
-        .validate( function( element ) {
-            console.log();
-            return true;
+        .transform( __dirname + '/transform/resizeImage.js')
+        .transform( __dirname + '/transform/createCopies.js')
+        .done( function() {
+            console.log( "[FINISHED]".green );
         });
-        */
 
-        /*
-        .select( '.images > *' )
-        .validate( __dirname + '/validate/checkHeightWidth.js')
-
-        .transform( __dirname + '/transform/prepareBasicThumbnail.js' )
-        .validate(  __dirname + '/validate/checkHeightWidth.js' )
-        .transform( __dirname + '/transform/createNewImage.js' )
-        .transform( __dirname + '/transform/prepareCopiesThumbnails.js' )
-        .split()
-        .transform( __dirname + '/transform/resizeImage.js' );
-        */
 };
 
 exports.run = function( path ) {
@@ -58,57 +40,3 @@ exports.run = function( path ) {
     var config = loader.load( path );
     exports.exec( config );
 };
-
-
-// transform from:
-/*
- {
- "version"        : 2,
-
- "input"           : "./img",
-
- "images" : [
- {
- "src"    : "test",
- "type"   : "png",
-
- "output"  : [{
- "path" : "./dist/dir1",
- "width"  : 100,
- "height" : 100
- }],
-
- "copy" : [
- "btn_example_state_on"
- ]
- },
- {
- "src"    : "test_new",
- "type"   : "png",
- "bgColor"   : "rgb(0, 10, 25)",
-
- "output"  : [{
- "path" : "./dist/dir2",
- "width"  : 200,
- "height" : 200
- }],
-
- "copy" : [
- "btn_example_state_on_2"
- ]
- }
- ]
- }
-
- to: ....
-
-create source if not exists:
- {
-     input:  'path',
-     output: 'path',
-     bgColor : 'color',
-
-     width: int,
-     height: int
- }
- */

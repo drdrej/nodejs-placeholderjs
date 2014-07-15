@@ -25,14 +25,13 @@ exports.exec = function( config ) {
         .transform( __dirname + '/transform/prepareImageInput.js' )
         .split()
         .transform( __dirname + '/transform/createOutputDirs.js' )
-        .transform( __dirname + '/transform/createNewImage.js' )
+        .tool( __dirname + '/ops/newImage.js' )
         .transform( __dirname + '/transform/resizeImage.js')
         .transform( __dirname + '/transform/createCopies.js')
         .done( function() {
             console.log( "[FINISHED]".green );
         });
-
-};
+     };
 
 exports.run = function( path ) {
     var loader = require( 'artefactjs-loader' );

@@ -1,12 +1,11 @@
 var _ = require( "underscore" );
 
-exports.transform = function( image, options ) {
+exports.exec = function( image, ready ) {
     var fs = require('fs');
-
 
     if (fs.existsSync(image.input)) {
         console.log( "-- file exists. use original. skip create()" );
-        return image;
+        ready();
     }
 
     var bgColor = image.bgColor && _.isString(image.bgColor) ? image.bgColor : "red";
@@ -16,12 +15,11 @@ exports.transform = function( image, options ) {
         .write( image.input, function (err) {
             if (!err) {
                 console.log('-- IMAGE src created successful! path: ' + image.output);
+                ready();
             } else {
-                console.log("[ERROR] couldn't create src: " + image.output);
+                console.log( ("[ERROR] couldn't create src: " + image.output).red );
                 console.log(err);
+                ready(err);
             }
         });
-
-    return image;
 };
-

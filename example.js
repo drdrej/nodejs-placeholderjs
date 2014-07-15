@@ -3,7 +3,7 @@
 var impl = require( "./impl/main.js" );
 
 var loader = require( 'artefactjs-loader' );
-var config = loader.load( "./example/placeholder.json" );
+var config = loader.json( "./example/placeholder.json" );
 
 // var config = require( "./example/placeholder.json" );
 

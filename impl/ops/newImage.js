@@ -16,6 +16,7 @@ exports.exec = function( image, ready ) {
         .write( image.input, function (err) {
             if (!err) {
                 console.log( ('-- IMAGE src created successful! path: ' + image.output).green );
+
                 ready();
             } else {
                 console.log( ("[ERROR] couldn't create src: " + image.output).red );

@@ -42,3 +42,18 @@ exports.run = function( path ) {
     exports.exec( config );
 };
 
+/*
+ .validate( __dirname + "/validate/checkVersion.js" )
+ .transform( __dirname + '/transform/prepareImageWrapper.js' )
+ .transform( __dirname + '/transform/prepareImageInput.js' )
+ .split()
+
+ .transform( __dirname + '/transform/createOutputDirs.js' )
+ .tool( __dirname + '/ops/newImage.js' )
+ .tool( __dirname + '/ops/resizeImage.js')
+ .tool( __dirname + '/ops/createCopies.js')
+
+ .done( function() {
+ console.log( "[FINISHED]".green );
+ });
+ */

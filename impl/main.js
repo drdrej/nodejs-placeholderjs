@@ -24,10 +24,12 @@ exports.exec = function( config ) {
         .transform( __dirname + '/transform/prepareImageWrapper.js' )
         .transform( __dirname + '/transform/prepareImageInput.js' )
         .split()
+
         .transform( __dirname + '/transform/createOutputDirs.js' )
         .tool( __dirname + '/ops/newImage.js' )
-        .transform( __dirname + '/transform/resizeImage.js')
-        .transform( __dirname + '/transform/createCopies.js')
+        .tool( __dirname + '/ops/resizeImage.js')
+        .tool( __dirname + '/ops/createCopies.js')
+
         .done( function() {
             console.log( "[FINISHED]".green );
         });
@@ -39,3 +41,4 @@ exports.run = function( path ) {
     var config = loader.load( path );
     exports.exec( config );
 };
+
